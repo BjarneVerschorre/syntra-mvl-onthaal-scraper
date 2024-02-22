@@ -4,7 +4,7 @@ import sys
 parser = argparse.ArgumentParser(
     prog=f'python3 {sys.argv[0]}',
     description='Scrapes and filters the \"Onthaal Database\" from Syntra MVL\'s website. If no arguments are given, it will return the entire database.',
-    epilog=f'Example: python3 {sys.argv[0]} -l "Gent" -c "Cybersecurity engineer"',
+    epilog=f'Example: %(prog)s -l "Gent" -c "Cybersecurity engineer"',
 )
 
 parser.add_argument(
