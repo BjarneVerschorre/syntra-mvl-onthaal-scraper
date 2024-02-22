@@ -21,5 +21,12 @@ parser.add_argument(
     type=str
 )
 
+parser.add_argument(
+    '-o', '--output',
+    help='Output the result to a file. (e.g. "output.json")',
+    required=False,
+    type=str
+)
+
 
 args = parser.parse_args()

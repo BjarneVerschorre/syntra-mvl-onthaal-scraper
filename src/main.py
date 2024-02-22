@@ -36,15 +36,20 @@ def filter_database(db: dict, location: str = '', cursus: str = '') -> dict:
     return db
 
 
-def main(locatie: str, cursus: str) -> None:
+def main(locatie: str, cursus: str, output:str) -> None:
     db = get_onthaal_database()
     db = filter_database(db, locatie, cursus)
 
     pprint(db)
+    
+    if output:
+        with open(output, 'w') as f:
+            json.dump(db, f, indent=4)
 
 
 if __name__ == '__main__':
     locatie = args.locatie
     cursus = args.cursus
+    output = args.output
 
-    main(locatie=locatie, cursus=cursus)
+    main(locatie=locatie, cursus=cursus, output=output)
