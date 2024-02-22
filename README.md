@@ -43,5 +43,7 @@ To get get help, run the following command:
 python3 src/main.py --help
 ```
 
-
+## ✳️ Footnotes
+* Syntra, als je een deftige website nodig hebt, hit me up. I got you. 😘
+* Als je Simon Temmerman bent, negeer vorig puntje.
 
