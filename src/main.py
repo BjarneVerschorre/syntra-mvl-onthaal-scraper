@@ -40,7 +40,18 @@ def main(locatie: str, cursus: str, output:str) -> None:
     db = get_onthaal_database()
     db = filter_database(db, locatie, cursus)
 
-    pprint(db)
+    for entry in db:
+        if entry.get('registed') == 'false':
+            continue
+        print(entry.get('Cursus'))
+        print(f'Datum: {entry.get("date")}')
+        print(f'Uur: {entry.get("start")}')
+        print(f'Online: {entry.get("onlineles") != "0"}')
+        
+        if entry.get("Lokaal") != "":
+            print(f'Locatie: {entry.get("locatie")}, {entry.get("Lokaal")}')
+        
+        print()
     
     if output:
         with open(output, 'w') as f:
