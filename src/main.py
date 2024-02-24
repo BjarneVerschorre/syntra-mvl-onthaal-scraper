@@ -9,7 +9,7 @@ BASE_URL = 'https://onthaal.syntra-mvl.be/'
 
 
 def get_onthaal_database() -> dict:
-    ''' Get the database from the website's HTML and return it as a dictionary'''
+    ''' Get the database from the website's HTML and return it as a dictionary '''
     res = httpx.get(BASE_URL)
     res.raise_for_status()
 
@@ -24,6 +24,7 @@ def get_onthaal_database() -> dict:
 
 
 def filter_database(db: dict, location: str = '', cursus: str = '') -> dict:
+    ''' Filter the database based on the location and the course if provided '''
     db = db.copy()
 
     if location:
