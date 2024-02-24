@@ -1,7 +1,6 @@
 import re
 import json
 import httpx
-from pprint import pprint
 
 from utils.parse_args import args
 
