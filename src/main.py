@@ -28,19 +28,19 @@ def filter_database(db: dict, location: str = '', cursus: str = '') -> dict:
     db = db.copy()
 
     if location:
-        db = [x for x in db if re.match(r'.*'+location+'.*', x['locatie'], re.IGNORECASE)]
+        db = [x for x in db if re.match(f'.*{location}.*', x['locatie'], re.IGNORECASE)]
 
     if cursus:
-        db = [x for x in db if re.match(r'.*'+cursus+'.*', x['Cursus'], re.IGNORECASE)]
+        db = [x for x in db if re.match(f'.*{cursus}.*', x['Cursus'], re.IGNORECASE)]
 
     return db
 
 
 def main(locatie: str, cursus: str, output:str) -> None:
     db = get_onthaal_database()
-    db = filter_database(db, locatie, cursus)
+    filtered_db = filter_database(db, locatie, cursus)
 
-    for entry in db:
+    for entry in filtered_db:
         if entry.get('registed') == 'false':
             continue
         print(entry.get('Cursus'))
@@ -55,7 +55,7 @@ def main(locatie: str, cursus: str, output:str) -> None:
     
     if output:
         with open(output, 'w') as f:
-            json.dump(db, f, indent=4)
+            json.dump(filtered_db, f, indent=4)
 
 
 if __name__ == '__main__':
